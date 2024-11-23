@@ -71,4 +71,4 @@ cd assignment1
 Open your browser and navigate to:
 bash
 Copy code
-http://localhost:8080/user-access-management
+http://localhost:8080/assignment1
