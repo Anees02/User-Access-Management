@@ -1,23 +1,27 @@
-User Access Management System
-Overview
+# User Access Management System Overview
+
 The User Access Management System is a web-based application designed to manage access to software applications based on user roles. The system supports three types of users:
 
-Employee: Can request access to software and track the status of their requests.
-Manager: Can view, approve, or reject pending access requests from employees.
-Admin: Can create new software applications and manage the list of software.
+- **Employee**: Can request access to software and track the status of their requests.
+- **Manager**: Can view, approve, or reject pending access requests from employees.
+- **Admin**: Can create new software applications and manage the list of software.
+
 The system features secure login, session management, and role-based access control.
 
-Features
-Authentication: Login and signup for users with secure password storage.
-Role-Based Access: Employee, Manager, and Admin functionalities tailored to their roles.
-Access Request Management: Employees can request software access, and managers can approve/reject these requests.
-Software Management: Admins can create new software with access levels and descriptions.
-Session Management: Secure sessions for user authentication with a logout functionality.
+## Features
 
-Database Setup
-Create a database in PostgreSQL:
+- **Authentication**: Login and signup for users with secure password storage.
+- **Role-Based Access**: Employee, Manager, and Admin functionalities tailored to their roles.
+- **Access Request Management**: Employees can request software access, and managers can approve/reject these requests.
+- **Software Management**: Admins can create new software with access levels and descriptions.
+- **Session Management**: Secure sessions for user authentication with a logout functionality.
 
-sql
+## Database Setup
+
+1. **Create a database in PostgreSQL:**
+   ```sql
+   CREATE DATABASE user_access_management;
+
 Copy code
 CREATE DATABASE user_access_management;
 Create the necessary tables:
