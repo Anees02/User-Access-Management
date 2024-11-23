@@ -54,4 +54,21 @@ INSERT INTO users (username, password, role) VALUES
 ('admin', 'admin123', 'Admin'),
 ('manager', 'manager123', 'Manager'),
 ('employee', 'employee123', 'Employee');
+How to Run the Project
+1. Clone the Repository
+bash
+Copy code
+git [clone https://github.com/(https://github.com/Anees02/assignment1)](https://github.com/Anees02/assignment1.git)
+cd assignment1
 
+2. Goto the helper folder and update the database connection details.
+
+3. open the project in your favourate IDE and make sure that you have tomcat server installed.
+
+4. run the maven (mvn clean install) or simply run it.
+
+5. Access the Application
+Open your browser and navigate to:
+bash
+Copy code
+http://localhost:8080/user-access-management
