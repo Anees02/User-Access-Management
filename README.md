@@ -19,7 +19,7 @@ The system features secure login, session management, and role-based access cont
 ## Database Setup
 
 Create a database in PostgreSQL:
-   ```sql
+   ```
    CREATE DATABASE user_access_management;
 
 
