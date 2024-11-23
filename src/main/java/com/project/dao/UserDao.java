@@ -8,18 +8,16 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import com.project.entity.User;
+import com.project.helper.ConnectionProvider;
 
 public class UserDao  {
-	private static final String url = "jdbc:postgresql://leucinedb-anees03.e.aivencloud.com:23273/defaultdb";
-    private static final String userDb = "avnadmin";
-    private static final String pass = "";
+	
     
 	public boolean addUser(User user) {
-		
+		Connection con = ConnectionProvider.getConnection();
 		try{
 
-			Class.forName("org.postgresql.Driver");
-			Connection con = DriverManager.getConnection(url,userDb,pass);
+			
 			String query = "INSERT INTO users(username,password,role) VALUES(?,?,?);";
 			PreparedStatement p = con.prepareStatement(query);
 			p.setString(1, user.getUsername());
@@ -37,10 +35,10 @@ public class UserDao  {
 	}
 	public User getUser(String username,String password) {
 		User user = null;
+		Connection con = ConnectionProvider.getConnection();
 		try{
 
-			Class.forName("org.postgresql.Driver");
-			Connection con = DriverManager.getConnection(url,userDb,pass);
+			
 			String query = "SELECT * FROM users WHERE username = '"+username+"' AND password = '"+password+"';";
 			Statement st =  con.createStatement();
 			ResultSet rs = st.executeQuery(query);
@@ -65,10 +63,10 @@ public class UserDao  {
 	
 	public User getUserById(int userId) {
 		User user = null;
+		Connection con = ConnectionProvider.getConnection();
 		try{
 
-			Class.forName("org.postgresql.Driver");
-			Connection con = DriverManager.getConnection(url,userDb,pass);
+			
 			String query = "SELECT * FROM users WHERE id = '"+userId+"';";
 			Statement st =  con.createStatement();
 			ResultSet rs = st.executeQuery(query);

@@ -10,31 +10,29 @@ import java.util.List;
 
 import com.project.entity.Software;
 import com.project.entity.User;
+import com.project.helper.ConnectionProvider;
 
 public class SoftwareDao {
-	private static final String url = "jdbc:postgresql://leucinedb-anees03.e.aivencloud.com:23273/defaultdb";
-    private static final String userDb = "avnadmin";
-    private static final String pass = "";
+	
     
 	public List<Software> giveList(){
 		List<Software> softwareList = new ArrayList<>();
 
-        // Fetch the software list from the database
+		Connection conn = ConnectionProvider.getConnection();
         try {
-        	Class.forName("org.postgresql.Driver");
-			Connection conn = DriverManager.getConnection(url, userDb,pass);
-            String sql = "SELECT * FROM software"; // Simple query to fetch all software
+        	
+            String sql = "SELECT * FROM software"; 
             try (PreparedStatement stmt = conn.prepareStatement(sql);
                  ResultSet  rs = stmt.executeQuery()) {
                 while (rs.next()) {
-                    // Create a Software object for each row in the result set
+                    
                     Software software = new Software(
-                            rs.getInt("id"),          // Software ID
-                            rs.getString("name"),     // Software name
-                            rs.getString("description"), // Software description
-                            rs.getString("access_levels") // Access levels
+                            rs.getInt("id"),          
+                            rs.getString("name"),     
+                            rs.getString("description"), 
+                            rs.getString("access_levels") 
                     );
-                    softwareList.add(software); // Add the software to the list
+                    softwareList.add(software); 
                 }
             }
         } catch (Exception e) {
@@ -42,14 +40,13 @@ public class SoftwareDao {
             
             
         }
-        //System.out.println("I am in the dao "+softwareList);
+        
         return softwareList;
 	}
 	public boolean addSoftware(Software software) {
-		
+		Connection conn = ConnectionProvider.getConnection();
 		try {
-			Class.forName("org.postgresql.Driver");
-			Connection conn = DriverManager.getConnection(url, userDb,pass);
+			
             String sql = "INSERT INTO software (name, description, access_levels) VALUES (?, ?, ?)";
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setString(1, software.getName());
@@ -69,10 +66,10 @@ public class SoftwareDao {
 	
 	public Software getSoftwareById(Integer softwareId) {
 		Software software = null;
+		Connection con = ConnectionProvider.getConnection();
 		try{
 
-			Class.forName("org.postgresql.Driver");
-			Connection con = DriverManager.getConnection(url,userDb,pass);
+			
 			String query = "SELECT * FROM software WHERE id = '"+softwareId+"';";
 			Statement st =  con.createStatement();
 			ResultSet rs = st.executeQuery(query);

@@ -8,16 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.project.entity.Request;
+import com.project.helper.ConnectionProvider;
 
 public class RequestDao {
-	private static final String url = "jdbc:postgresql://leucinedb-anees03.e.aivencloud.com:23273/defaultdb";
-    private static final String userDb = "avnadmin";
-    private static final String pass = "";
+	
     
     public boolean addRequest(Request request) {
     	try{
-    		Class.forName("org.postgresql.Driver");
-    		Connection conn = DriverManager.getConnection(url, userDb, pass);
+    		
+    		Connection conn = ConnectionProvider.getConnection();
     		
             String sql = "INSERT INTO requests (user_id, software_id, access_type, reason, status) VALUES (?, ?, ?, ?, 'Pending')";
             PreparedStatement stmt = conn.prepareStatement(sql);
@@ -39,8 +38,7 @@ public class RequestDao {
     	List<Request> requestList = new ArrayList<>();
 
         try {
-        	Class.forName("org.postgresql.Driver");
-    		Connection conn = DriverManager.getConnection(url, userDb, pass);
+        	Connection conn = ConnectionProvider.getConnection();
             
             String sql = "SELECT * FROM requests WHERE status='Pending'";
             try (PreparedStatement stmt = conn.prepareStatement(sql);
@@ -73,8 +71,7 @@ public class RequestDao {
     
     public boolean updatePending(Integer id,String approval) {
     	try{
-    		Class.forName("org.postgresql.Driver");
-    		Connection conn = DriverManager.getConnection(url, userDb, pass);
+    		Connection conn = ConnectionProvider.getConnection();
     		
     		String sql = "UPDATE requests SET status = ? WHERE id = ?";
 

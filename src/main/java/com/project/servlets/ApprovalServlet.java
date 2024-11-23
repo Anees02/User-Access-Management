@@ -16,7 +16,9 @@ public class ApprovalServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action"); // Either "approve" or "reject"
         String requestId = request.getParameter("requestId");
-
+        
+        
+        
         // Validate parameters
         if (action == null || requestId == null || requestId.isEmpty()) {
             response.sendRedirect("pendingRequests.jsp?error=missingParams");
