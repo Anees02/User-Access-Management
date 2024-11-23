@@ -12,7 +12,7 @@ import com.project.entity.Request;
 public class RequestDao {
 	private static final String url = "jdbc:postgresql://leucinedb-anees03.e.aivencloud.com:23273/defaultdb";
     private static final String userDb = "avnadmin";
-    private static final String pass = "AVNS_xECBut5Np1GAgcHrg6q";
+    private static final String pass = "";
     
     public boolean addRequest(Request request) {
     	try{
