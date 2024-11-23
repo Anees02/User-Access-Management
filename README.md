@@ -58,7 +58,7 @@ How to Run the Project
 1. Clone the Repository
 bash
 Copy code
-git [clone https://github.com/(https://github.com/Anees02/assignment1)](https://github.com/Anees02/assignment1.git)
+git clone https://github.com/Anees02/assignment1.git
 cd assignment1
 
 2. Goto the helper folder and update the database connection details.
