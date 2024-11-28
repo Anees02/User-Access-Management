@@ -1,6 +1,7 @@
 # User Access Management System Overview
 
-The User Access Management System is a web-based application designed to manage access to software applications based on user roles. The system supports three types of users:
+The User Access Management System is a web-based application.
+It is designed to manage access to software applications based on user roles. The system supports three types of users:
 
 - **Employee**: Can request access to software and track the status of their requests.
 - **Manager**: Can view, approve, or reject pending access requests from employees.
